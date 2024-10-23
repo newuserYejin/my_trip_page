@@ -1,0 +1,298 @@
+body {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -ms-overflow-style: none;
+    background-color: #ececf0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body>* {
+    width: 100%;
+}
+
+.topButton {
+    position: fixed;
+    background: none;
+    border: none;
+    width: 50px;
+    padding: 0;
+    margin: 0;
+
+    bottom: 10px;
+    right: 10px;
+
+    display: none;
+
+    animation: bounce 400ms linear infinite alternate;
+
+    img {
+        width: 100%;
+    }
+}
+
+.progress_bar {
+    position: fixed;
+    height: 120px;
+    width: 100%;
+    background: #caf0f8;
+    z-index: 5;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    padding: 10px 0;
+
+    .progress-name {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .bar-line {
+        margin-top: 20px;
+        width: 90%;
+        max-height: 5px;
+        border-radius: 5px;
+
+        position: relative;
+
+        .back-groundline {
+            border-radius: 5px;
+            height: 13px;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: -1;
+
+            .line {
+                width: 15%;
+                height: 100%;
+                background-color: #fafaff;
+                border-radius: 5px;
+            }
+
+            .circle {
+                width: 13px;
+                border-radius: 50%;
+                height: 100%;
+
+                background-color: #fafaff;
+                position: relative;
+
+                a {
+                    position: absolute;
+                    color: black;
+                    text-decoration: none;
+                    top: 20px;
+                    left: -13px;
+
+                    /* border: solid 1px red; */
+                    width: max-content;
+                }
+            }
+
+            .selected {
+                font-weight: bold;
+            }
+        }
+
+        img {
+            position: absolute;
+            z-index: 2;
+            top: -10px;
+            width: 35px;
+            left: 0;
+        }
+    }
+
+    #myBar {
+        position: absolute;
+        top: 0;
+        /* 프로그래스바 높이 */
+        height: 13px;
+        /* 프로그래스바 색상 */
+        background-color: #00b4d8;
+        width: 0;
+        border-radius: 5px;
+    }
+}
+
+.main_box {
+    margin: 20px 0;
+    max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    .my_profile {
+        width: 30%;
+
+        position: relative;
+
+        .profile_box {
+            position: sticky;
+            top: 130px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+
+            background-color: #fafafa;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+            padding: 15px 5px;
+
+            img {
+                width: 80%;
+                border-radius: 50%;
+                padding: 5px;
+                background-color: #d6d9dc;
+                box-shadow: 0 0 5px rgba(126, 125, 125, 0.8);
+            }
+
+            .profile_info {
+                min-width: 90%;
+                margin-top: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .main_content {
+
+        width: 65%;
+
+        .card {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            background-color: #fafafa;
+            margin-bottom: 20px;
+            padding: 10px;
+            padding-bottom: 70px;
+            height: 500px;
+            /* min-height: 500px; */
+            border-radius: 0;
+
+            .cardName {
+                font-weight: bold;
+                font-size: 1.3em;
+                margin-bottom: 10px;
+            }
+
+            #carouselExampleIndicators {
+                height: 75%;
+                position: relative;
+
+                .carousel-inner {
+                    height: 100%;
+                    text-align: center;
+
+                    .carousel-item {
+                        height: 100%;
+
+                        img {
+                            max-width: 80%;
+                            max-height: 100%;
+                        }
+                    }
+                }
+
+                .carousel-indicators [data-bs-target] {
+                    background-color: gray;
+                }
+
+                .carousel-indicators {
+                    position: absolute;
+                    bottom: -50px;
+                }
+
+
+                button {
+                    .carousel-control-prev-icon {
+                        background-image: url("./image/chevron-left-solid.svg");
+                    }
+
+                    .carousel-control-next-icon {
+                        background-image: url("./image/chevron-right-solid.svg");
+                    }
+                }
+            }
+
+            .tagList {
+                display: flex;
+                margin-top: 70px;
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 10px;
+                column-gap: 4px;
+                margin-bottom: 30px;
+
+                .tag {
+                    cursor: pointer;
+                    font-weight: bold;
+                    padding: 3px 5px;
+                    border: solid 2px black;
+                    border-radius: 10px;
+                }
+
+                .tag:hover {
+                    background-color: gray;
+                    color: white;
+                    border-color: gray;
+                }
+            }
+
+
+        }
+    }
+}
+
+/* 글씨가 프로그레스 바에 가려지지 않도록 스크롤 상단 여백 조정 */
+article {
+    scroll-margin-top: 170px;
+}
+
+footer {
+    width: 100%;
+    height: 20vh;
+    background-color: #333333;
+    color: #757575;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        color: #757575;
+        cursor: pointer;
+    }
+
+    img {
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    span {
+        margin-top: 10px;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: translateY(-8px)
+    }
+}
